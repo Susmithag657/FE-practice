@@ -1,15 +1,18 @@
-import React,{useState,useEffecct} from 'react'
-import AccordionItem from './AccordionItem'
-import data from './data.json'
-const Accordion=()=>{
-  const [data,setData]=useState({})
-  useEffecct(()=>{
-    setData(data)
-  },[])
-return(
-  <div>
-    {!!data.length && data.map((e,i)=><AccordionItem key={i} faq={e.faq} answer={e.answer}/>)}
+import React, { useState, useEffect } from 'react';
+import AccordionItem from './AccordionItem';
+import { faqs } from './data';
+const Accordion = () => {
+  const [faqData, setfaqData] = useState({});
+  useEffect(() => {
+    setfaqData(faqs);
+  }, []);
+  return (
+    <div>
+      {!!faqData.length &&
+        faqData.map((e, i) => (
+          <AccordionItem key={i} faq={e.faq} answer={e.answer} />
+        ))}
     </div>
-)
-}
-export default Accordion
+  );
+};
+export default Accordion;
